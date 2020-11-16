@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <title>영단어 찾기 게임(ENG-Word Search Game)</title>
+    <link rel="stylesheet" href="css/wordsearch.min.css" />
+    <link rel="stylesheet" href="css/style.min.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <h1 class="logo">영단어 찾기 게임(ENG-Word Search Game)</h1>
+      <section id="ws-area"></section>
+      <ul class="ws-words"></ul>
+      <p style="text-align:center;">2020.11.17 / 201601874 / 최연우</p>
+    </div>
+    <script src="js/utility.min.js"></script>
+    <script src="js/wordsearch.min.js"></script>
+    <script type="text/javascript">
+      var gameAreaEl = document.getElementById('ws-area');
+      var gameobj = gameAreaEl.wordSearch();
+
+      // .ws-words 단어 넣기
+      var words = gameobj.settings.wordsList,
+        wordsWrap = document.querySelector('.ws-words');
+      for (i in words) {
+        var liEl = document.createElement('li');
+        liEl.setAttribute('class', 'ws-word');
+        liEl.innerText = words[i];
+        wordsWrap.appendChild(liEl);
+      }
+    </script>
+  </body>
+</html>
